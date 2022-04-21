@@ -12,5 +12,5 @@ if __name__ == '__main__':
                 | 'Split Data' >> beam.Map(lambda line: line.split(','))
                 | 'Filter Data' >> beam.Filter(lambda records: records[6] == '1065')
                 | 'Join Data' >> beam.Map(lambda records: ",". join(records))
-                | 'Write to Local File' >> beam.io.WriteToText(r"C:\Users\INE12377731\Data\actual", ".csv")
+                | 'Write to Local File' >> beam.io.WriteToText(str(ROOT_DIR) + r"\test_data\actual", ".csv")
                 )
